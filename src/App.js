@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, BrowserRouter } from "react-router-dom";
+import { Route, BrowserRouter, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -7,20 +7,22 @@ import Contact from "./pages/Contact";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <nav>
-          <h1>My Articles</h1>
-        </nav>
-        <Route path="/">
-          <Home />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/contact">
-          <Contact />
-        </Route>
-      </BrowserRouter>
+        <BrowserRouter>
+          <nav>
+            <h1>My Articles</h1>
+          </nav>
+          <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+          </Switch>
+        </BrowserRouter>
     </div>
   );
 }
